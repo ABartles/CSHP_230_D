@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body >
+
+    <div>
+        <h1>
+             Birthday Card Generator
+        </h1>
+    </div>
+    <div style="padding-left: 20px">
+        <div>
+            <h2>
+                @RenderSection("headerTwo")
+            </h2>
+        </div>
+        <div>
+            @RenderBody()
+        </div>
+        <div>
+            <br />
+        </div>
+        <div>
+            <footer>
+                © 2016 - My ASP.NET Application
+            </footer>
+        </div>
+    </div>
+
+</body>
+</html>

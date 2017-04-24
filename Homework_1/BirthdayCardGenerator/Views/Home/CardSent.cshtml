@@ -1,0 +1,27 @@
+﻿@model BirthdayCardGenerator.Models.CardFill
+
+@{
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CardSent</title>
+</head>
+<body>
+    <div>
+        @section headerTwo{ Birthday Card Sent }
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            <p>From: @Model.From</p>
+            <p>To: @Model.To</p>
+            <p>Message: @Model.Message</p>
+        </div>
+    }
+</body>
+</html>

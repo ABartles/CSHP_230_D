@@ -1,0 +1,32 @@
+﻿@model BirthdayCardGenerator.Models.CardFill
+
+@{
+    Layout = "~/Views/_BasicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>CardForm</title>
+</head>
+<body>
+    <div>
+        @section headerTwo{ Send a Birthday Card }
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.ValidationSummary()
+            <p>From: @Html.TextBoxFor(t => t.From)</p>
+            <p>To: @Html.TextBoxFor(t => t.To)</p>
+            <p>Message: @Html.TextBoxFor(t => t.Message)</p>
+        </div>
+            <div>
+                <input class="btn .btn-success" type="submit" value="Submit Card" />
+            </div>
+    }
+</body>
+</html>
