@@ -1,0 +1,60 @@
+﻿<!--
+    Example Use of in View:
+        For Loop
+        Table
+        formating 
+        If Statment         
+-->
+
+@model HelloWorld.Models.Product[]
+
+@{ ViewBag.Title = "Products";}
+
+@{
+    Layout = "~/Views/_BasicLayout.cshtml"; // Implement "_BasicLayout"
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Products</title>
+</head>
+<body>
+    <div> 
+
+        @if (Model.Length > 0)
+        {
+            <table>
+                @foreach (var product in Model)
+                {
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@string.Format("{0:C}", product.Price)</td> <!--Display in str format as a currency-->
+                        <td>@product.ProductCount</td>
+                        <td>
+                            @if (product.ProductCount == 0)
+                            {
+                                @:Stock Level Empty
+                            }
+                            else if (product.ProductCount == 1)
+                            {
+                                @:Stock Level Low
+                            }
+                            else
+                            {
+                                @:Stock Level Acceptable
+                            }
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h2>No product data found.</h2>
+        }
+    </div>
+</body>
+</html>

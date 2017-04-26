@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Product</title>
+</head>
+<body>
+    <div> 
+        <!--Line below tells the view engine what kind of model object will be passed
+            from the action method to the view
+             -->
+        @model HelloWorld.Models.Product
+
+        @Model.Name - @Model.Description - @Model.Price
+    </div>
+</body>
+</html>

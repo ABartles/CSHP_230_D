@@ -31,3 +31,7 @@ C:\CSHP_230_D\HW2\HelloWorld\bin\System.Web.Mvc.xml
 C:\CSHP_230_D\HW2\HelloWorld\obj\Debug\HelloWorld.csprojResolveAssemblyReference.cache
 C:\CSHP_230_D\HW2\HelloWorld\obj\Debug\HelloWorld.dll
 C:\CSHP_230_D\HW2\HelloWorld\obj\Debug\HelloWorld.pdb
+C:\CSHP_230_D\HW2\HelloWorld\bin\Autofac.dll
+C:\CSHP_230_D\HW2\HelloWorld\bin\Autofac.Integration.Mvc.dll
+C:\CSHP_230_D\HW2\HelloWorld\bin\Autofac.xml
+C:\CSHP_230_D\HW2\HelloWorld\bin\Autofac.Integration.Mvc.xml
