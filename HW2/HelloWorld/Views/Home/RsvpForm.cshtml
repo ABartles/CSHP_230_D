@@ -1,0 +1,54 @@
+﻿@model HelloWorld.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- line below Added for validation styling, corisponds to content/styles-->
+    <link rel="stylesheet" type="text/css" href="~/Content/styles.css" /> 
+    <!-- line below added to implement installed styling package-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>RsvpForm</title>
+</head>
+<body>
+    <!-- the style block below implements the installed styling package-->
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <div> 
+        @using (Html.BeginForm())
+        {
+            
+            <h4 class="panel-heading text-center">RSVP</h4>
+
+            @Html.ValidationSummary()   // Added as part of validation
+            <p class="form-group"><label>Name:</label> @Html.TextBoxFor(t => t.Name)</p>
+            <p class="form-group"><label>Phone:</label> @Html.TextBoxFor(t => t.Phone)</p>
+            <p class="form-group"><label>Email Address:</label> @Html.TextBoxFor(t => t.EmailAddress)</p>
+            <p class="form-group">
+                <label>Will Attend: </label> 
+                @Html.DropDownListFor(t => t.WillAttend, new[]
+                  {
+                    new SelectListItem { Text="Yes, I'll be there", Value=bool.TrueString},
+                    new SelectListItem{Text="No, I can't come", Value=bool.FalseString},
+                  }, "Choose an option")
+            </p>
+
+            <input class="btn btn-success" type="submit" value="Submit RSVP" />
+        }
+    </div>
+</body>
+</html>

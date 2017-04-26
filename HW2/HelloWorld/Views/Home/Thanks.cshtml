@@ -1,0 +1,42 @@
+﻿@model HelloWorld.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- line below added to implement installed styling package-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Thanks</title>
+</head>
+<body>
+    <!-- the style block below implements the installed styling package-->
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <div> 
+        <h1>Thank you, @Model.Name</h1>
+        @if (Model.WillAttend == true)
+        {
+            // @: indicates everything after will be treated as text
+            @:Thanks for coming!
+        }
+        else
+        {
+            @:Sorry you can't make it.
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!-- line below added to implement installed styling package-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+
+
+
+<body>
+    <!-- the style block below implements the installed styling package-->
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #f1f1f1;
+        }
+    </style>
+
+    <div> 
+        <p></p>
+        <h2>The Party is Tonight</h2>
+        <h3>And You Are Invited</h3>
+        
+        <!-- 
+            div below wraps the link into a button.
+            btn-success is a type of button styled in the installed styling package.
+            The installed styling package is partialy overwrtten by the style defined above.
+        -->
+        <div class="btn btn-success">
+            @Html.ActionLink("RSVP NowZZ", "RsvpForm")
+        </div>
+
+    </div>
+
+</body>
+</html>
