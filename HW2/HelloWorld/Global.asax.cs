@@ -20,6 +20,8 @@ namespace HelloWorld
         }
 
         // Added to catch errors at the application level
+        // commented out so errors can be seen while in dev
+        /*
         protected void Application_Error()
         {
             var exception = Server.GetLastError();
@@ -33,6 +35,7 @@ namespace HelloWorld
             IController errorController = new Controllers.ErrorController();
             errorController.Execute(new RequestContext(new HttpContextWrapper(Context), routeData));
         }
+        */
 
         private void RegisterAutofac()
         {

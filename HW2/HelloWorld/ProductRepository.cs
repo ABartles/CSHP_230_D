@@ -31,12 +31,24 @@ namespace HelloWorld
                     new Product{ ProductId=104, Name="Golf ball", Description="ball", Price=40.99m, ProductCount = 10},
                     };
 
-                    // stores caching for 30 sec
+                    /*
+                    // Non-Sliding caching for 30 sec
                     HttpContext.Current.Cache.Insert("MyProducts",
                                              items,
                                              null,
                                              DateTime.Now.AddSeconds(30),
                                              Cache.NoSlidingExpiration);
+                     */
+
+
+                    // Sliding Cashing for 5 Sec
+                    // If it keeps getting called within 5 sec the data will remain cached
+                    // once it has gone 5 sec without any call it will drop the cache
+                    HttpContext.Current.Cache.Insert("MyProducts",
+                         items,
+                         null,
+                         Cache.NoAbsoluteExpiration,
+                         new TimeSpan(0,0,5));
                 }
 
                 return (IEnumerable<Product>)HttpContext.Current.Cache["MyProducts"];

@@ -11,7 +11,7 @@ namespace HelloWorld.Controllers
     public class HomeController : Controller
     {
         // GET: Home
-        [Logging]   // Added the action filter attribute to implment Logging Attribute Class
+        // [Logging]   // Added the action filter attribute to implment Logging Attribute Class
         // [AuthorizeIPAddress] // Added the action filter attribute to check IP 
         public ActionResult Index()
         {
@@ -106,5 +106,86 @@ namespace HelloWorld.Controllers
             this.productRepository = productRepository;
         }
 
+        //====================================
+        
+        // Method for session state
+        public PartialViewResult IncrementCount()
+        {
+            int count = 0;
+
+            // Check if MyCount exists
+            if (Session["MyCount"] != null)
+            {
+                count = (int)Session["MyCount"];
+                count++;
+            }
+
+            // Create the MyCount session variable
+            Session["MyCount"] = count;
+
+            return new PartialViewResult();
+        }
+
+        //====================================
+        // kinda worthless as far as login (session excercise)
+        //Login Action
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(LoginModel loginModel)
+        {
+            Session["UserName"] = loginModel.UserName;  // start a session
+            return RedirectToAction("Index");
+        }
+
+        // Logoff Action
+        public ActionResult Logoff()
+        {
+            Session["UserName"] = null;
+            return RedirectToAction("Index");
+        }
+
+        // Display login name, will need ot call on the partial view
+        public PartialViewResult DisplayLoginName()
+        {
+            return new PartialViewResult();
+        }
+        //====================================
+
+        // Setting Cookie
+        public ActionResult SetCookie()
+        {
+            // Name the cookie as MyCookie for later retrieval
+            var cookie = new HttpCookie("MyCookie");
+
+            // This cookie will expire about one minute, depends on the browser
+            cookie.Expires = DateTime.Now.AddMinutes(1);
+
+            // This cookie will have a simple string value of myUserName
+            // but it can be any kind of object.
+            cookie.Value = "myUserName";
+
+            // Add the cookie to the response to send it to the browser
+            HttpContext.Response.Cookies.Add(cookie);
+
+            return View(cookie);
+        }
+
+        //Reading Cookies
+        public ActionResult GetCookie()
+        {
+                return View(HttpContext.Request.Cookies["MyCookie"]);
+        }
+        //====================================
+
+        // Security
+        [Authorize]
+        public ActionResult Notes()
+        {
+            return View();
+        }
     }
 }

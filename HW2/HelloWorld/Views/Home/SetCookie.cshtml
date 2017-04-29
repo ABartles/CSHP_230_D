@@ -1,0 +1,27 @@
+﻿@model HttpCookie
+@{    Layout = null; }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>SetCookie</title>
+</head>
+<body>
+    <div> 
+        @if (Model == null)
+        {
+            <p>Cookie not set</p>
+        }
+        else
+        {
+            <p>Cookie Set</p>
+            <p>Name: @Model.Name</p>
+            <p>Value: @Model.Value</p>
+            <p>Expires: @Model.Expires</p>
+        }
+
+    </div>
+</body>
+</html>
