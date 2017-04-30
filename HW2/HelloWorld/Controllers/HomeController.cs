@@ -182,7 +182,8 @@ namespace HelloWorld.Controllers
         //====================================
 
         // Security
-        [Authorize]
+        [Authorize]     // This attribute validates user is authorized (ie. in db)
+        [IsAdministrator]   // This attribute validates user is an admin
         public ActionResult Notes()
         {
             return View();

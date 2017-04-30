@@ -1,6 +1,6 @@
-﻿
+﻿@model HelloWorld.Models.LoginModel
 @{
-    Layout = null;
+    Layout = "~/Views/_BasicLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -15,6 +15,19 @@
 
         <h1>Notes</h1>
         <p>You should have to log on to see this page</p>
+    </div>
+    <div>
+        <footer>
+            @if (Session != null && Session["User"] != null)
+            {
+                var user = (HelloWorld.Models.User)Session["User"];
+                <p>Logged in as: @user.Email</p>
+                // can also be shown as Identity.Name as part of the principal class
+                <!--
+                <p>Logged in as: @User.Identity.Name</p>
+                -->
+            }
+        </footer>
     </div>
 </body>
 </html>

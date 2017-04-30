@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!--Calling jquery source. -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <script>
+        function hideParagraph() {
+            $(this).hide()
+            alert('hello')
+        }
+
+        function RegisterOnParagraphClick() {
+            $("p").click(hideParagraph)
+        }
+
+        $(document).ready(RegisterOnParagraphClick)
+    </script>
+</head>
+<body>
+
+    <p>If you click on me, I will disappear.</p>
+    <p>Click me away!</p>
+    <p>Click me too!</p>
+
+</body>
+</html>
