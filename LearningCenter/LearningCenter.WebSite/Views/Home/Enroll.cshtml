@@ -1,0 +1,29 @@
+﻿@using LearningCenter.WebSite.Models
+@model LearningCenter.WebSite.Models.ClassViewModel
+@{
+    ViewBag.Title = "Enroll in a Class";
+}
+
+<h2>Enroll</h2>
+
+
+
+@if (Session["User"] != null)
+{
+    <div class="row">
+        <select>
+            @foreach (var course in Model.Classes)
+            {
+                <option>@course.Name</option>
+            }
+        </select>
+        <button>@Html.ActionLink("Add Class", "AddClass")</button>
+    </div>
+
+}
+else
+{
+
+    <p class="alert-warning"> Please Log in or register prior to enrolling in a course.</p>
+
+}

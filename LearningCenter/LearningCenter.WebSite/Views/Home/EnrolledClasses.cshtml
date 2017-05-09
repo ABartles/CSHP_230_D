@@ -1,0 +1,24 @@
+﻿<!--TBD-->
+@{
+    ViewBag.Title = "Student Classes";
+}
+
+<h2>EnrolledClasses</h2>
+
+<!--Possibly use a partial view and roll in with ClassList-->
+<!--Update below-->
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var course in Model.Classes)
+    {
+        <tr>
+            <td>@course.Name</td>
+            <td>@course.Description</td>
+            <td>@string.Format("{0:c}", course.Price)</td>
+        </tr>
+    }
+</table>

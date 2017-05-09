@@ -1,0 +1,23 @@
+﻿@model LearningCenter.WebSite.Models.ClassViewModel
+
+@{
+    ViewBag.Title = "ClassList";
+}
+
+<h2>ClassList</h2>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </tr>
+    @foreach (var course in Model.Classes)
+    {
+        <tr>
+            <td>@course.Name</td>
+            <td>@course.Description</td>
+            <td>@string.Format("{0:c}", course.Price)</td>
+        </tr>
+    }
+</table>
